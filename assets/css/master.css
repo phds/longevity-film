@@ -1,31 +1,112 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeue.ttf') format('tff');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeue-Medium.ttf') format('tff');
+}
+
+@font-face {
+  font-family: 'Athelas Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Athelas-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Athelas Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Athelas-Italic.woff') format('woff');
+}
+
 html, body {
   height: 100%;
-  background-color: gray;
+  background-color: #F4F4F8;
   user-select: none;
   cursor: default;
   margin: 0;
   padding: 0;
+  font-family: "Athelas Regular";
 }
+
+/* HEADER */
 
 header{
   width: 100%;
-  height: 300px;
-  background: red no-repeat;
+  padding: 5% 7% 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
 header nav{
-  width: 100%;
+  width: 86%;
   display: inline-block;
+  z-index: 5;
+  position: absolute;
 }
 
 nav ul{
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
+
+nav ul li a{
+  display: block;
+  color: black;
+  text-align: center;
+  padding-bottom: 8px;
+  text-decoration: none;
+  margin: 0 15px;
+  border-bottom: 1px solid black;
+}
+
+nav ul li a:hover{
+  color: #081FC1;
+  font-family: "Athelas Italic";
+}
+
+nav ul li.left a{
+  padding-right: 21px;
+}
+
+nav ul li.right a{
+  padding-left: 20px;
+}
+
+nav ul li.left{
+  float:left;
+}
+
+nav ul li.right{
+  float:right;
+}
+
+
+.logo > span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 11px;
+}
+
+.logo > img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* SECTION */
 
 section{
   display: flex;
-  margin: 4% 10% 0;
+  margin: 0 10%;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
 .preview{
@@ -37,6 +118,7 @@ section{
 
 .preview>img{
   width: 100%;
+  cursor: pointer;
   height: auto;
 }
 
@@ -50,16 +132,76 @@ section{
   top: -7%;
   left: 40%;
   font-size: 0.7em;
+  display:none;
 }
 
+#scrollme {
+  cursor: pointer;
+  margin: 3% 0;
+}
 
-.overlay{
+/* OVERLAY */
+
+#overlay{
   position:fixed;
   top:0;
   left:0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,201, 0.8);
+  background-color: rgba(0,0,201, 0.9);
   z-index: 999;
+
   display: none;
+  /*display: flex;*/
+  flex-direction: column;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+#overlay > .close-btn {
+  display: inline-block;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+}
+
+#overlay > .right-arrow{
+  position: fixed;
+  right: 8%;
+  top:50%;
+}
+
+#overlay > .left-arrow{
+  position: fixed;
+  left: 8%;
+  top:50%;
+}
+
+#overlay > .left-arrow > img {
+  transform: rotate(180deg);
+}
+
+#overlay > .title{
+  font-family: HelveticaNeue-Medium;
+  font-size: 36px;
+  color: #EDF0F1;
+  letter-spacing: 0.12px;
+}
+
+#overlay > video {
+  width: 50%;
+  margin: 5% 0;
+}
+
+#overlay > .description{
+  /* A fear of death has: */
+  font-family: Athelas-Regular;
+  font-size: 13px;
+  color: #EDF0F1;
+  letter-spacing: 0.13px;
+  border: 2px solid #FFFFFF;
+  width: 40%;
+  padding: 10px;
+  text-align: center;
 }
