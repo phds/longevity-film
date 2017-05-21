@@ -36,7 +36,7 @@ html, body {
 
 header{
   width: 100%;
-  height: 27%;
+  height: 31%;
   padding: 5% 7% 0;
   box-sizing: border-box;
   position: relative;
@@ -94,6 +94,7 @@ nav ul li.right{
 .logo{
   position:fixed;
   z-index: 4;
+  width: 86%;
 }
 
 
@@ -103,6 +104,7 @@ nav ul li.right{
     font-size: 18px;
     margin-bottom: 11px;
     color: #05303E;
+    letter-spacing: 2.5px;
 }
 
 .logo > img {
@@ -148,7 +150,11 @@ section{
 
 #scrollme {
   cursor: pointer;
-  margin: 3% 0;
+  margin: 17% 0 5%;
+}
+
+#scrollme > img {
+  width: 30px;
 }
 
 /* OVERLAY */
@@ -202,7 +208,7 @@ section{
 
 #overlay > video {
   width: 50%;
-  margin: 5% 0;
+  margin: 3% 0;
 }
 
 #overlay > .description{
