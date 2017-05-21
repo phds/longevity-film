@@ -57,7 +57,7 @@ nav ul{
 }
 
 nav ul li {
-  min-width: 12%;
+  min-width: 13%;
 }
 
 nav ul li a{
@@ -71,6 +71,11 @@ nav ul li a{
 }
 
 nav ul li a:hover{
+  color: #081FC1;
+  font-family: "Athelas Italic";
+}
+
+nav ul li.active a{
   color: #081FC1;
   font-family: "Athelas Italic";
 }
@@ -133,6 +138,13 @@ section{
   width: 100%;
   cursor: pointer;
   height: auto;
+  transition: transform 0.5s ease;
+}
+
+.preview>img:hover{
+  -ms-transform: scale(1.05, 1.05);
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
 }
 
 .preview>.text-box{
