@@ -88,7 +88,6 @@ function showTextBox(specificPreview){
   if(!activeTextBoxes.includes(preview)){
     activeTextBoxes.push(preview);
   }
-  console.log(activeTextBoxes);
 
   if(activeTextBoxes.length >= 4){
     hideTextBox(activeTextBoxes[0]);
@@ -114,30 +113,44 @@ function closeVideo(){
 }
 
 function showVideo(position){
-  console.log(position);
   var overlay = document.getElementById('overlay');
   var currentVideo = overlay.getElementsByTagName
-  var newVideo = position;
+  var newVideo;
+  var oldId;
   if(position == "-1"){
-    newVideo = position
+    // oldId = this.id.split('-')[1];
+    // newVideo = oldId - 1;
+    // if(newVideo == 0){
+    //   newVideo = 14;
+    // }
+    newVideo = 1;
   }
-  if(!overlay.style.display || overlay.style.display == "none"){
-    //set title, description
-    var video = overlay.getElementsByTagName('video')[0];
+  else if(position == "+1"){
 
-    video.addEventListener('mouseover', function() { this.controls = true; }, false);
-    video.addEventListener('mouseout', function() { this.controls = false; }, false);
+    // newVideo = (oldId + 1) % 14
+    newVideo = 6;
+  }
+  else{
+    newVideo = position;
+  }
 
-    // video.src = "assets/video/" + newVideo + ".mp4";
-    video.poster = "assets/img/" + position +  ".jpg";
+  var video = overlay.getElementsByTagName('video')[0];
+
+  video.addEventListener('mouseover', function() { this.controls = true; }, false);
+  video.addEventListener('mouseout', function() { this.controls = false; }, false);
+
+  if(![6,7].includes(newVideo)){
     video.scr = "assets/video/6.mp4";
-    // video.poster = "assets/img/6.jpg";
-
-    overlay.getElementsByClassName('title')[0].innerHTML = videoTitle[newVideo];
-    overlay.getElementsByClassName('description')[0].innerHTML = videoDescription[newVideo];
-
-    overlay.style.display = "flex";
   }
+  else{
+    video.src = "assets/video/" + newVideo + ".mp4";
+  }
+  video.poster = "assets/img/" + newVideo +  ".jpg";
+
+  overlay.getElementsByClassName('title')[0].innerHTML = videoTitle[newVideo];
+  overlay.getElementsByClassName('description')[0].innerHTML = videoDescription[newVideo];
+
+  overlay.style.display = "flex";
 }
 
 function scrollTo(element, to, duration) {
