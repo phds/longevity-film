@@ -157,7 +157,8 @@ section{
   top: -7%;
   left: 40%;
   font-size: 0.7em;
-  display:none;
+  display: inline-block;
+  opacity: 0;
 }
 
 #scrollme {

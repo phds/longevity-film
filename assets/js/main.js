@@ -49,6 +49,64 @@ var videoText = {
   14: "Certainly, that kind of degree of weariness, a questioning of the official views is a healthy thing - it’s something we’ve got to encourage and support in society. What we need is a greater emphasis on critical thinking and to an extent that will definitely involve the questioning of those in authority - the questioning of the official version."
 }
 
+function type(querySelector, str, cb, preStringTyped){
+  Typed.new(querySelector, {
+  	strings: [str],
+  	contentType: 'html',
+    showCursor: false,
+  	cursorChar: "|",
+    typeSpeed: 30,
+    callback: function(){
+      if(cb) {
+        cb();
+      }
+    },
+  });
+}
+
+var activeTextBoxes = [];
+
+function showTextBox(specificPreview){
+
+  var preview;
+
+  if(!specificPreview){
+    var randomPreview = (Math.floor(Math.random()*12) + 1).toString();
+
+    while(activeTextBoxes.includes(randomPreview)){
+      randomPreview = (Math.floor(Math.random()*12) + 1).toString();
+      if(!activeTextBoxes.includes(randomPreview)){
+        break;
+      }
+    }
+
+    preview = randomPreview;
+  }
+  else{
+    preview = specificPreview;
+  }
+  if(!activeTextBoxes.includes(preview)){
+    activeTextBoxes.push(preview);
+  }
+  console.log(activeTextBoxes);
+
+  if(activeTextBoxes.length >= 4){
+    hideTextBox(activeTextBoxes[0]);
+  }
+
+  var el = document.querySelector('#preview-' + preview + ' > .text-box');
+  el.style.opacity = 1;
+  el.style.top = (Math.floor(Math.random()*51)) + '%';
+  el.style.left = (Math.floor(Math.random()*42) + 3) + '%';
+  type('#preview-' + preview + ' > .text-box', videoText[preview]);
+}
+
+function hideTextBox(preview){
+  var el = document.querySelector('#preview-' + preview + ' > .text-box');
+  el.style.opacity = 0;
+  el.innerHTML = "";
+  activeTextBoxes.shift();
+}
 
 function closeVideo(){
   var overlay = document.getElementById('overlay');
@@ -125,5 +183,14 @@ document.addEventListener("DOMContentLoaded", function(){
      scrollTo(document.body, 0, 1250);
   }
 
+  setInterval(function(){
+    showTextBox();
+  }, 10000);
 
+  $('article').hover(function(){
+    var id = this.id.split('-')[1];
+    if(!activeTextBoxes.includes(id)){
+      showTextBox(id);
+    }
+  });
 })
