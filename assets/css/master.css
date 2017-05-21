@@ -36,6 +36,7 @@ html, body {
 
 header{
   width: 100%;
+  height: 27%;
   padding: 5% 7% 0;
   box-sizing: border-box;
   position: relative;
@@ -55,14 +56,18 @@ nav ul{
   overflow: hidden;
 }
 
+nav ul li {
+  min-width: 12%;
+}
+
 nav ul li a{
   display: block;
-  color: black;
+  color: #05303E;
   text-align: center;
   padding-bottom: 8px;
   text-decoration: none;
   margin: 0 15px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #05303E;
 }
 
 nav ul li a:hover{
@@ -86,12 +91,18 @@ nav ul li.right{
   float:right;
 }
 
+.logo{
+  position:fixed;
+  z-index: 4;
+}
+
 
 .logo > span {
     display: block;
     text-align: center;
     font-size: 18px;
     margin-bottom: 11px;
+    color: #05303E;
 }
 
 .logo > img {
