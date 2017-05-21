@@ -193,19 +193,21 @@ section{
   display: inline-block;
   position: fixed;
   top: 5%;
-  right: 8%;
+  right: 5%;
 }
 
 #overlay > .right-arrow{
   position: fixed;
-  right: 8%;
+  right: 5%;
   top:50%;
+  transform: translateY(-50%);
 }
 
 #overlay > .left-arrow{
   position: fixed;
-  left: 8%;
+  left: 5%;
   top:50%;
+  transform: translateY(-50%);
 }
 
 #overlay > .left-arrow > img {
@@ -214,16 +216,16 @@ section{
 
 #overlay > .title{
   font-family: HelveticaNeue-Medium;
-  font-size: 36px;
+  font-size: 26px;
   color: #EDF0F1;
   letter-spacing: 0.12px;
-  padding-bottom: 7px;
-  border-bottom: 4px solid #EDF0F1;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #EDF0F1;
 }
 
 #overlay > video {
-  width: 50%;
-  margin: 1% 0;
+  width: 60%;
+  margin: 3% 0;
 }
 
 #overlay > .description{
