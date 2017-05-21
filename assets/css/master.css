@@ -46,7 +46,7 @@ header nav{
   width: 86%;
   display: inline-block;
   z-index: 5;
-  position: absolute;
+  position: fixed;
 }
 
 nav ul{
