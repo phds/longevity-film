@@ -61,17 +61,35 @@ nav ul{
 }
 
 nav ul li {
+  height: auto;
+  width: auto;
+  position: relative;
   min-width: 13%;
 }
+
+
+nav li.left { text-align: left; }
+
+nav .right { text-align: right;}
+
+nav ul li:before { content: "";
+                   height: 0px;
+                   width: 70%;
+                   border-bottom: solid 1px black;
+                   position: absolute;
+                   bottom: 0px;
+                   left: 0px; }
 
 nav ul li a{
   display: block;
   color: #05303E;
   text-align: center;
-  padding-bottom: 8px;
+  padding-bottom: 8px; padding: 0px;
+  width: 100%;
+  position: relative;
   text-decoration: none;
   margin: 0 15px;
-  border-bottom: 1px solid #05303E;
+  border-bottom: 0px solid #05303E;
 }
 
 nav ul li a:hover{
@@ -100,11 +118,84 @@ nav ul li.right{
   float:right;
 }
 
+
+
+
+.nav_wrap { height: auto;
+            width: 80%;
+            position: fixed;
+            top: 5.1%;
+            left: 10%;
+            overflow-y: auto;
+            z-index: 500;
+            }
+
+
+
+.nav_link { height: auto;
+            width: 13%;
+            position: relative;
+            display: inline;
+            float: left;
+            font-size: 14px;
+            color: black;
+            padding-bottom: 8px;
+            margin-left: ;}
+
+
+.nav_link:before { content: "";
+                   height: 0px;
+                   width: 50%;
+                   position: absolute;
+                   bottom: 0px;
+                   border-bottom: solid 1px black;
+                  }
+
+
+.nav_link:nth-of-type(1):before,
+.nav_link:nth-of-type(2):before { left: 0px; }
+
+.nav_link:nth-of-type(3):before,
+.nav_link:nth-of-type(4):before { right: 0px; }
+
+.nav_link:nth-of-type(4):before { width: 60%; }
+
+
+.nav_link:nth-of-type(1),
+.nav_link:nth-of-type(2) { float: left;
+                           text-align: left;
+                            }
+
+
+
+
+
+.nav_link:nth-of-type(3),
+.nav_link:nth-of-type(4) { float: right;
+                           text-align: right;
+                          }
+
+
+
+.nav_text { height: auto;
+            width: 30%;
+            position: fixed;
+            top: 5.1%;
+            left: 35%;
+            font-size: 18px;
+            color: black;
+            text-align: center;
+            z-index: 400;
+            }
+
+
+
 .logo{
   position:fixed;
   z-index: 4;
   width: 86%;
-}
+  margin-top: ;
+  }
 
 
 .logo > span {
@@ -124,32 +215,93 @@ nav ul li.right{
 
 /* SECTION */
 
-section{
-  display: flex;
+section {
+  height: auto;
+  width: auto;
+  position: relative;
+  margin: 0 5%;
+  overflow-y: auto;
+  /*display: flex;
   margin: 0 10%;
   flex-flow: row wrap;
-  justify-content: center;
-}
+  justify-content: center;*/
+ }
 
 .preview{
-  width: 50%;
-  padding: 2% 3%;
-  box-sizing: border-box;
+  height: 243px; 
+  width: 48%;
   position: relative;
-}
+  display: inline;
+  float: left;
+  margin: 0px;
+  padding: 0;
+  margin-top: 2%;
+  }
 
-.preview>img{
+.preview:nth-of-type(-n+2) { margin-top: 0px; }
+
+.preview:nth-of-type( 2n) { float: right; }
+
+.preview:nth-of-type(odd) { float: ; }
+/*
+.preview:nth-of-type(even) { float: right; }
+*/
+
+/*
+.preview>img {
   width: 100%;
   cursor: pointer;
   height: auto;
   transition: transform 0.5s ease;
 }
+*/
 
+.prev_pic { height: 90%;
+            width: 96%;
+            position: relative;
+            top: 5%;
+            left: 2%;
+            -webkit-transition: .25s ease;
+            transition: .25s ease;
+            -moz-transition: .25s ease;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: #F9F9F9;
+            overflow: hidden;
+          }
+
+
+.prev_pic img { height: auto;
+                width: 100%;
+                position: relative;
+                -webkit-transition: .25s ease;
+                transition: .25s ease;
+                -moz-transition: .25s ease;
+                }
+
+
+.prev_pic:hover{
+                 /*-ms-transform: scale(1.05, 1.05);
+                 -webkit-transform: scale(1.05, 1.05);
+                 transform: scale(1.05, 1.05);*/
+                 height: 100%;
+                 width: 100%;
+                 top: 0px;
+                 left: 0px;
+                 -webkit-transition: .25s ease;
+                 transition: .25s ease;
+                 -moz-transition: .25s ease;
+                 }
+
+
+/*
 .preview>img:hover{
   -ms-transform: scale(1.05, 1.05);
   -webkit-transform: scale(1.05, 1.05);
   transform: scale(1.05, 1.05);
 }
+*/
 
 .preview>.text-box{
   border: 1px solid #05303E;
@@ -166,9 +318,11 @@ section{
 }
 
 #scrollme {
+  position: relative;
   cursor: pointer;
   margin: 17% 0 5%;
-}
+  display: ;
+ }
 
 #scrollme > img {
   width: 30px;
