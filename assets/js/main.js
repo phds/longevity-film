@@ -208,3 +208,125 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 })
+
+
+
+
+
+
+
+// to display active top bar menu link 
+$( "body" ).on( "click", ".nav_link", function(){
+    
+ $( this ).addClass( "on_link" ).siblings().removeClass( "on_link" );
+    
+ if ( $( this ).hasClass( "nav_1" )){
+     
+   show_home();  
+     
+ } if ( $( this ).hasClass( "nav_2" ) ){
+  
+  
+  show_about();
+  
+     
+ }
+    
+    
+}); // end of click nav link
+
+
+
+
+// show main content
+function show_home(){
+    
+    
+ // show main content 
+  $( "#about_section" ).addClass( "hide" );
+     
+  setTimeout( function(){
+      
+  $( "#about_section" ).hide().removeClass( "hide" ); 
+  $( "#main" ).show();
+      
+  }, 200 );
+    
+ $( "body" ).animate({scrollTop: "0px" });
+    
+} // end of show home function 
+
+
+
+// show about content
+function show_about(){
+    
+    
+  // show about section
+  $( "#main" ).addClass( "hide" );
+     
+  setTimeout( function(){
+      
+  $( "#main" ).hide().removeClass( "hide" ); 
+  $( "#about_section" ).show();
+      
+  }, 200 );
+    
+ $( "body" ).animate({scrollTop: "0px" });
+    
+    
+} // end of show about 
+
+
+
+
+
+// position menu links
+$( ".menu_wrap" ).css({"margin-top": -($( ".menu_wrap" ).outerHeight(true)/2) });
+
+
+
+// -- to show mobile menu
+$( "body" ).on( "click", ".menu_button", function(){
+    
+ $( ".pop_up" ).show();
+ $( ".menu_wrap" ).css({"margin-top": -($( ".menu_wrap" ).outerHeight(true)/2) });
+    
+}); // end of click menu button
+
+
+
+// -- to hide menu 
+$( "body" ).on( "click", ".close_pop", function(){
+    
+ $( ".pop_up" ).hide();
+    
+}); // end of close pop 
+
+
+
+// -- click menu link
+$( "body" ).on( "click", ".menu_link", function(){
+
+ if ( $( this ).hasClass( "m_1" ) ){
+     
+ // show home     
+ show_home();
+     
+ } if ( $(this).hasClass( "m_2" ) ){
+  
+ // show about     
+ show_about();
+ 
+ } 
+
+ $( ".pop_up" ).hide();
+    
+});
+
+
+
+
+
+
+
