@@ -184,12 +184,10 @@ document.addEventListener("DOMContentLoaded", function(){
   for (var i = 1; i <= 14; i++) {
     (function(i){
       console.log(i)
-      document.querySelector('#preview-' + i + ' > .prev_pic').addEventListener('click', function(e){
+      document.querySelector('#preview-' + i ).addEventListener('click', function(e){
         showVideo(i);
       });
-      document.querySelector('#preview-' + i + ' > .text-box').addEventListener('click', function(e){
-        showVideo(i);
-      });
+      
     })(i);
   }
 
