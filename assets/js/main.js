@@ -22,7 +22,7 @@ var videoDescription = {
   4: "We’ve been made to fear death throughout history, but in a world subject to increased human lifespans, an unstable job economy (due to automation, precarious work and universal basic income), what next?",
   5: "A fear of death is a form of control. Significant and exponential technological and scientific advances mean we can escape more illnesses and diseases than before, ones that might have otherwise already eliminated us. A fear of death then makes us want to stay alive longer and thus work for longer.",
   6: "\“The American Dream\” is an outdated one and the way we work now certainly isn’t working. Our mindsets are stuck in the outdated belief of a new prosperity embedded in hard work, despite our rapidly changing world.",
-  7: "If people living longer and longer lifetimes, over 100, people are going to want to reinvent themselves. A three-stage life of work-education-retirement is no longer feasible or sustainable.",
+  7: "If people are living longer and longer lifetimes, over 100, people are going to want to reinvent themselves. A three-stage life of work-education-retirement is no longer feasible or sustainable.",
   8: "They know it is happening, they make it happen, but they don’t seem bothered in stopping it. It’s the greatest conspiracy of all. Longevity is not the gift it’s made out to be, don’t thank advances in science and technology. Longevity is no more than elaborate hoax to milk us of our time, our lives, our money, our assets.",
   9: "Why do we believe in conspiracies? What makes them so appealing?",
   10: "What happens when we don’t need to work anymore? We live in a society that puts the value of hard work above all else, but we live in an economy that has no jobs for us.",
@@ -114,24 +114,24 @@ function closeVideo(){
 
 function showVideo(position){
   var overlay = document.getElementById('overlay');
-  var currentVideo = overlay.getElementsByTagName
   var newVideo;
   var oldId;
-  if(position == "-1"){
-    // oldId = this.id.split('-')[1];
-    // newVideo = oldId - 1;
-    // if(newVideo == 0){
-    //   newVideo = 14;
-    // }
-    newVideo = 1;
+  if(position === "-1"){
+    oldId = Number(overlay.videoId);
+    newVideo = oldId - 1;
+    if(newVideo == 0){
+      newVideo = 14;
+    }
   }
-  else if(position == "+1"){
-
-    // newVideo = (oldId + 1) % 14
-    newVideo = 6;
+  else if(position === "+1"){
+    oldId = Number(overlay.videoId);
+    newVideo = oldId + 1;
+    if(newVideo == 15){
+      newVideo = 1;
+    }
   }
   else{
-    newVideo = position;
+    newVideo = Number(position);
   }
 
   var video = overlay.getElementsByTagName('video')[0];
@@ -139,14 +139,10 @@ function showVideo(position){
   video.addEventListener('mouseover', function() { this.controls = true; }, false);
   video.addEventListener('mouseout', function() { this.controls = false; }, false);
 
-  if(![6,7].includes(newVideo)){
-    video.scr = "assets/video/6.mp4";
-  }
-  else{
-    video.src = "assets/video/" + newVideo + ".mp4";
-  }
+  video.src = "assets/video/" + newVideo + ".mp4";
   video.poster = "assets/img/" + newVideo +  ".jpg";
 
+  overlay.videoId = newVideo;
   overlay.getElementsByClassName('title')[0].innerHTML = videoTitle[newVideo];
   overlay.getElementsByClassName('description')[0].innerHTML = videoDescription[newVideo];
 
@@ -183,11 +179,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
   for (var i = 1; i <= 14; i++) {
     (function(i){
-      console.log(i)
       document.querySelector('#preview-' + i ).addEventListener('click', function(e){
         showVideo(i);
       });
-      
+
     })(i);
   }
 
@@ -213,24 +208,24 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-// to display active top bar menu link 
+// to display active top bar menu link
 $( "body" ).on( "click", ".nav_link", function(){
-    
+
  $( this ).addClass( "on_link" ).siblings().removeClass( "on_link" );
-    
+
  if ( $( this ).hasClass( "nav_1" )){
-     
-   show_home();  
-     
+
+   show_home();
+
  } if ( $( this ).hasClass( "nav_2" ) ){
-  
-  
+
+
   show_about();
-  
-     
+
+
  }
-    
-    
+
+
 }); // end of click nav link
 
 
@@ -238,42 +233,42 @@ $( "body" ).on( "click", ".nav_link", function(){
 
 // show main content
 function show_home(){
-    
-    
- // show main content 
+
+
+ // show main content
   $( "#about_section" ).addClass( "hide" );
-     
+
   setTimeout( function(){
-      
-  $( "#about_section" ).hide().removeClass( "hide" ); 
+
+  $( "#about_section" ).hide().removeClass( "hide" );
   $( "#main" ).show();
-      
+
   }, 200 );
-    
+
  $( "body" ).animate({scrollTop: "0px" });
-    
-} // end of show home function 
+
+} // end of show home function
 
 
 
 // show about content
 function show_about(){
-    
-    
+
+
   // show about section
   $( "#main" ).addClass( "hide" );
-     
+
   setTimeout( function(){
-      
-  $( "#main" ).hide().removeClass( "hide" ); 
+
+  $( "#main" ).hide().removeClass( "hide" );
   $( "#about_section" ).show();
-      
+
   }, 200 );
-    
+
  $( "body" ).animate({scrollTop: "0px" });
-    
-    
-} // end of show about 
+
+
+} // end of show about
 
 
 
@@ -286,20 +281,20 @@ $( ".menu_wrap" ).css({"margin-top": -($( ".menu_wrap" ).outerHeight(true)/2) })
 
 // -- to show mobile menu
 $( "body" ).on( "click", ".menu_button", function(){
-    
+
  $( ".pop_up" ).show();
  $( ".menu_wrap" ).css({"margin-top": -($( ".menu_wrap" ).outerHeight(true)/2) });
-    
+
 }); // end of click menu button
 
 
 
-// -- to hide menu 
+// -- to hide menu
 $( "body" ).on( "click", ".close_pop", function(){
-    
+
  $( ".pop_up" ).hide();
-    
-}); // end of close pop 
+
+}); // end of close pop
 
 
 
@@ -307,24 +302,17 @@ $( "body" ).on( "click", ".close_pop", function(){
 $( "body" ).on( "click", ".menu_link", function(){
 
  if ( $( this ).hasClass( "m_1" ) ){
-     
- // show home     
+
+ // show home
  show_home();
-     
+
  } if ( $(this).hasClass( "m_2" ) ){
-  
- // show about     
+
+ // show about
  show_about();
- 
- } 
+
+ }
 
  $( ".pop_up" ).hide();
-    
+
 });
-
-
-
-
-
-
-

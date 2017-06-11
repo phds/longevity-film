@@ -4,9 +4,10 @@
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
+  font-family: 'Helvetica Neue Medium';
   src: url('../fonts/HelveticaNeue-Medium.ttf') format('tff');
 }
+
 
 @font-face {
   font-family: 'Athelas Regular';
@@ -49,10 +50,10 @@ header{
 
 
 .nav_wrap { height: auto;
-            width: 80%;
+            width: 83.7%;
             position: fixed;
             top: 7%;
-            left: 10%;
+            left: 8%;
             overflow-y: auto;
             z-index: 500;
             }
@@ -128,8 +129,17 @@ header{
             color: #05303E;
             text-align: center;
             z-index: 400;
+            letter-spacing: 2px;
             }
 
+
+
+.fixed_link { height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              }
 
 
 .logo{
@@ -306,6 +316,17 @@ to   { left: 0px; }
           }
 
 
+.preview:after { content: "";
+                 height: 100%;
+                 width: 100%;
+                 position: absolute;
+                 top: 0px;
+                 left: 0px;
+                 background: black;
+                 opacity: 0;
+                 z-index: 100;
+                 }
+
 .preview:nth-of-type(-n+2) { margin-top: 0px; }
 
 
@@ -410,7 +431,7 @@ to   { -webkit-transform: rotateY(0deg); }
                 }
 
 
-.prev_pic:hover{
+.preview:hover .prev_pic {
                  -ms-transform: scale(1.05, 1.05);
                  -webkit-transform: scale(1.05, 1.05);
                  transform: scale(1.05, 1.05);
@@ -437,7 +458,7 @@ to   { -webkit-transform: rotateY(0deg); }
   background-color: #F3F3F7;
   padding: 10px;
   z-index: 2;
-  width: 50%;
+  max-width: 50%;
   position: absolute;
   top: -7%;
   left: 40%;
@@ -448,19 +469,38 @@ to   { -webkit-transform: rotateY(0deg); }
 
 
 #scrollme { height: auto;
-            width: 45px;
+            width: 100%;
             position: relative;
-            margin: 5% auto;
+            margin: 8% auto;
             cursor: pointer;
             }
 
 
-#scrollme > img { height: auto;
+.scroll_img { height: auto;
+              width: 34px;
+              position: relative;
+              margin: 0 auto;
+              }
+
+.scroll_img img { height: auto;
                   width: 100%;
                 }
 
 
-#scrollme:hover { opacity: .7; }
+.scroll_img:hover { opacity: .7; }
+
+
+.scroll_text { height: auto;
+               width: 70%;
+               position: relative;
+               margin: 0 auto;
+               font-size: 16px;
+               text-align: center;
+               margin-top: 10px;
+               font-family: Athelas-Regular;
+               font-style: italic;
+               color: #C8C8C8;
+               }
 
 
 
@@ -520,6 +560,10 @@ to   { -webkit-transform: rotateY(0deg); }
   right: 5%;
 }
 
+.close-btn img { height: auto;
+                 width: 22px;
+                }
+
 #overlay > .right-arrow{
   position: fixed;
   right: 5%;
@@ -538,31 +582,57 @@ to   { -webkit-transform: rotateY(0deg); }
   transform: rotate(180deg);
 }
 
+
+.left-arrow > img,
+.right-arrow > img { height: auto;
+                     width: 32px;
+                    }
+
 #overlay > .title{
-  font-family: HelveticaNeue-Medium;
+  font-family: "helvetica-neue", "helvetica neue", "helvetica";
   font-size: 26px;
   color: #EDF0F1;
   letter-spacing: 0.12px;
-  padding-bottom: 15px;
+  padding-bottom: 6px;
   border-bottom: 2px solid #EDF0F1;
-}
+  text-transform: capitalize; }
 
 #overlay > video {
-  width: 60%;
-  margin: 3% 0;
-}
+  width: 50%;
+  margin: 1.5% 0px;
+  z-index: 200;
+ }
 
 #overlay > .description{
   /* A fear of death has: */
   font-family: Athelas-Regular;
-  font-size: 14px;
+  font-size: 13px;
   color: #EDF0F1;
   letter-spacing: 0.53px;
   border: 1px solid #FFFFFF;
-  width: 40%;
-  padding: 18px;
+  width: 30%;
+  padding: 20px 24px;
   text-align: center;
+  position: relative;
+  margin: 0 auto;
 }
+
+
+
+.description:before { content: "";
+                      height: 100%;
+                      width: 50px;
+                      position: absolute;
+                      top: -80%;
+                      left: -51px;
+                      border-left: solid 1px white;
+                      border-bottom: solid 1px white;
+                     }
+
+
+
+
+
 
 
 
@@ -634,10 +704,10 @@ to   { -webkit-transform: rotateY(0deg); }
               font-family: 'Helvetica Neue';
               font-size: 38px;
               text-transform: capitalize;
-              color: rgb(0,63,29);
-              padding-bottom: 20px;
+              color: #05303E;
+              padding-bottom: 25px;
               font-weight: 500;
-             }
+              }
 
 
 
@@ -647,7 +717,7 @@ to   { -webkit-transform: rotateY(0deg); }
                      position: absolute;
                      bottom: 0px;
                      left: 0px;
-                     background: rgb(0,63,29);
+                     background: #05303E;
                      }
 
 
@@ -666,7 +736,7 @@ to   { -webkit-transform: rotateY(0deg); }
               width: 100%;
               position: relative;
               margin-top: 15px;
-              font-size: 18px;
+              font-size: 16px;
               color: #05303E;
               line-height: 24px;
              }
@@ -674,6 +744,7 @@ to   { -webkit-transform: rotateY(0deg); }
 
 .text_block:first-of-type { margin-top: 0px; }
 
+.wrap_sub_title { margin-top: 35px; }
 
 
 
