@@ -187,7 +187,7 @@ header{
 
 
 /* media query */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 980px) {
 
 
 
@@ -245,7 +245,7 @@ section {
   position: relative;
   display: flex;
   display: -webkit-flex;
-  margin: 2% 8%;
+  margin: 3% 8%;
   flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
   -moz-flex-flow: row wrap;
@@ -260,7 +260,7 @@ section {
 @media screen and (max-width: 600px) {
 
 
-section { margin: 2% 4%; }
+section { margin: 3% 4%; }
 
 
 } /* end of media query */
@@ -507,11 +507,11 @@ to   { -webkit-transform: rotateY(0deg); }
 /* OVERLAY */
 
 #overlay{
+  height: 100%;
+  width: 100%;
   position:fixed;
   top:0;
   left:0;
-  height: 100%;
-  width: 100%;
   background-color: rgba(0,0,201, 0.95);
   z-index: 999;
   display: none;
@@ -553,7 +553,7 @@ to   { -webkit-transform: rotateY(0deg); }
 } /* end of keyframes */
 
 
-#overlay > .close-btn {
+.close-btn {
   display: inline-block;
   position: fixed;
   top: 5%;
@@ -561,61 +561,95 @@ to   { -webkit-transform: rotateY(0deg); }
 }
 
 .close-btn img { height: auto;
-                 width: 22px;
+                 width: 26px;
                 }
 
-#overlay > .right-arrow{
+.right-arrow{
   position: fixed;
   right: 5%;
   top:50%;
   transform: translateY(-50%);
 }
 
-#overlay > .left-arrow{
+.left-arrow{
   position: fixed;
   left: 5%;
   top:50%;
   transform: translateY(-50%);
 }
 
-#overlay > .left-arrow > img {
+.left-arrow > img {
   transform: rotate(180deg);
 }
 
 
 .left-arrow > img,
 .right-arrow > img { height: auto;
-                     width: 32px;
+                     width: 36px;
                     }
 
-#overlay > .title{
+
+
+.video_wrap { height: 380px;
+              width: 50%;
+              position: relative;
+              margin: 0px auto;
+              }
+
+
+.video_wrap iframe { height: 100%;
+                     width: 100%;
+                     position: relative;
+                     z-index: 200;
+                     background-color: black;
+                    }
+
+
+.title{
+  height: auto;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
   font-family: "helvetica-neue", "helvetica neue", "helvetica";
   font-size: 26px;
   color: #EDF0F1;
   letter-spacing: 0.12px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #EDF0F1;
-  text-transform: capitalize; }
+  /*border-bottom: 2px solid #EDF0F1;*/
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  margin-top: -11%;
+  line-height: 44px;
+    }
 
-#overlay > video {
-  width: 50%;
-  margin: 1.5% 0px;
-  z-index: 200;
- }
 
-#overlay > .description{
+.title span { height: auto;
+              width: auto;
+              position: relative;
+              border-bottom: 2px solid #EDF0F1;
+              padding-bottom: 6px;
+             }
+
+
+
+.description{
   /* A fear of death has: */
+  height: auto;
+  width: 50%;
+  /*max-width: 400px;
+  position: relative;
+  margin: 0 auto;*/
+  position: absolute;
+  left: 22.5%;
   font-family: Athelas-Regular;
   font-size: 13px;
   color: #EDF0F1;
   letter-spacing: 0.53px;
   border: 1px solid #FFFFFF;
-  width: 30%;
   padding: 20px 24px;
   text-align: center;
-  position: relative;
-  margin: 0 auto;
-}
+  margin-top: 15px;
+    }
 
 
 
@@ -637,28 +671,31 @@ to   { -webkit-transform: rotateY(0deg); }
 
 
 /* media query */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 980px) {
 
-#overlay > .title{
+.title{
   font-family: HelveticaNeue-Medium;
   font-size: 21px;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-}
+  margin-top: -15%;
+ }
 
 
-#overlay > video {
+.video_wrap {
+  height: 250px;
   width: 100%;
   margin: 3% 0;
 }
 
 
-#overlay > .description{
-  width: 80%;
+.description{
+  width: 65%;
   padding: 18px;
-}
+  left: 17.5%;
+  }
 
 
 .left-arrow,
@@ -794,7 +831,7 @@ to   { left: 100%; }
 
 
 /* media query */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 980px) {
 
 
 .content_wrap { padding: 5% 0px; }
