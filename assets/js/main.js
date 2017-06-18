@@ -162,13 +162,13 @@ document.addEventListener("DOMContentLoaded", function(){
   showTextBox();
   showTextBox();
   showTextBox();
-  //
-  // $('article').hover(function(){
-  //   var id = this.id.split('-')[1];
-  //   if(!activeTextBoxes.includes(id)){
-  //     showTextBox(id);
-  //   }
-  // });
+  
+  $('article').hover(function(){
+    var id = this.id.split('-')[1];
+    if(!activeTextBoxes.includes(id)){
+      showTextBox(id);
+    }
+  });
 })
 
 
