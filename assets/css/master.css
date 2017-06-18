@@ -671,7 +671,7 @@ to   { -webkit-transform: rotateY(0deg); }
 
 
 /* media query */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 600px) {
 
 .title{
   font-family: HelveticaNeue-Medium;
@@ -906,6 +906,10 @@ to   { left: 100%; }
              -webkit-animation-fill-mode: backwards;
             }
 
+.menu_link:hover {
+  color: #081FC1;
+  font-family: "Athelas Italic";
+}
 
 .menu_link:first-of-type { margin-top: 0px; }
 
