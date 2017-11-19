@@ -115,6 +115,7 @@ function closeVideo(){
   //overlay.style.display = "none";
   $("#overlay").hide();
   $(".preview").removeClass("on_prev");
+  $("#video").attr("src", video);
 
 }
 
@@ -167,11 +168,9 @@ document.addEventListener("DOMContentLoaded", function(){
 // to show overlay
 function show_overlay(x,y){
 
-
-
  var title = videoTitle[x];
  var description = videoDescription[x];
- var video = y + "?rel=0";
+ var video = y + "?rel=0&version=3&enablejsapi=1";
 
  $(".title").show();
  $(".title span").text(title);

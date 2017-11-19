@@ -189,7 +189,7 @@ header{
 /* media query */
 @media screen and (max-width: 900px) {
 
-.text-box { opacity: 0; }
+.text-box { display: none !important; }
 
 .nav_wrap { display: none; }
 
