@@ -2,8 +2,8 @@ var videoTitle = {
   1: "An obsession with work and increased productivity",
   2: "The political dream - a construction of conspiracy",
   3: "An illusion of freedom",
-  4: "What next? The future of human purpose.",
-  5: "A fear of death.",
+  4: "What next? The future of human purpose",
+  5: "A fear of death",
   6: "An outdated dream/way of working",
   7: "RIP a three stage life",
   8: "Longevity is a conspiracy",
@@ -93,7 +93,7 @@ function showTextBox(specificPreview){
     hideTextBox(activeTextBoxes[0]);
   }
 
-  topPosition = (Math.floor(Math.random()*1.9)) ? (Math.floor(Math.random()*(-18))) : (Math.floor(Math.random()*15) + 65);
+  topPosition = (Math.floor(Math.random()*1.9)) ? (Math.floor(Math.random()*(-4))) : (Math.floor(Math.random()*15) + 40);
   leftPosition = (Math.floor(Math.random()*1.9)) ? (Math.floor(Math.random()*20)) : (Math.floor(Math.random()*17) + 30);
 
   var el = document.querySelector('#preview-' + preview + ' > .text-box');
@@ -113,8 +113,8 @@ function hideTextBox(preview){
 function closeVideo(){
   //var overlay = document.getElementById('overlay');
   //overlay.style.display = "none";
-  $( "#overlay" ).hide();
-  $( ".preview" ).removeClass( "on_prev" );
+  $("#overlay").hide();
+  $(".preview").removeClass("on_prev");
 
 }
 
@@ -146,15 +146,6 @@ function scrollTo(element, to, duration) {
 
 document.addEventListener("DOMContentLoaded", function(){
 
-  for (var i = 1; i <= 14; i++) {
-    (function(i){
-      document.querySelector('#preview-' + i ).addEventListener('click', function(e){
-        showVideo(i);
-      });
-
-    })(i);
-  }
-
   document.getElementById('scrollme').onclick = function () {
      scrollTo(document.body, 0, 1250);
   }
@@ -173,10 +164,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-
-
-
-
 // to show overlay
 function show_overlay(x,y){
 
@@ -186,15 +173,15 @@ function show_overlay(x,y){
  var description = videoDescription[x];
  var video = y + "?rel=0";
 
- $( ".title" ).show();
- $( ".title span" ).text( title );
- $( ".description" ).text( description ).show();
+ $(".title").show();
+ $(".title span").text(title);
+ $(".description").text(description).show();
 
- $( "#video" ).attr( "src", video );
+ $("#video").attr("src", video);
 
- $( ".left-arrow, .right-arrow" ).show();
+ $(".left-arrow, .right-arrow").show();
 
- $( "#overlay" ).show().css('display', 'flex');
+ $("#overlay").show().css('display', 'flex');
 
 
 
@@ -203,18 +190,18 @@ function show_overlay(x,y){
 
 
 
-$( ".preview" ).click( function(){
+$(".preview").click(function(){
 
 
 
-$( this ).addClass( "on_prev").siblings().removeClass( "on_prev" );
+  $(this).addClass("on_prev").siblings().removeClass("on_prev");
 
-var vid = $( this ).attr( "data-vid" );
-var id = $( this ).attr( "id" );
-var split = id.split("-");
-var num = split[1];
+  var vid = $(this).attr("data-vid");
+  var id = $(this).attr("id");
+  var split = id.split("-");
+  var num = split[1];
 
- show_overlay(num,vid);
+   show_overlay(num,vid);
 
 
 }); // end of .preview click
@@ -222,14 +209,14 @@ var num = split[1];
 
 
 
-$( ".film_link" ).click( function(){
+$(".film_link").click(function(){
 
- var video = $( this ).attr( "data-vid" );
- $( ".title, .description, .left-arrow, .right-arrow" ).hide();
+  var video = $(this).attr("data-vid");
+  $(".title, .description, .left-arrow, .right-arrow").hide();
 
- $( "#video" ).attr( "src", video );
+  $("#video").attr("src", video);
 
- $( "#overlay" ).show().css('display', 'flex');
+  $("#overlay").show().css('display', 'flex');
 
 
 
@@ -239,55 +226,49 @@ $( ".film_link" ).click( function(){
 
 
 // to change video with arrows
-$( ".left-arrow, .right-arrow" ).click( function(){
+$(".left-arrow, .right-arrow").click(function(){
 
- if ( $( this ).hasClass( "left-arrow" ) ){
+  if ($(this).hasClass("left-arrow")){
 
   // go back
-  var current = $( ".on_prev" );
-  var prev = $( ".on_prev" ).prev();
+    var current = $(".on_prev");
+    var prev = $(".on_prev").prev();
 
-  if ( prev.length > 0 ){
+    if (prev.length > 0){
 
-    // there is a prev video
-    prev.addClass( 'on_prev' ).siblings().removeClass( "on_prev" );
-    var vid = $( ".on_prev" ).attr( "data-vid" );
-    var id = $( ".on_prev" ).attr( "id" );
-    var split = id.split("-");
-    var num = split[1];
+      // there is a prev video
+      prev.addClass('on_prev').siblings().removeClass("on_prev");
+      var vid = $(".on_prev").attr("data-vid");
+      var id = $(".on_prev").attr("id");
+      var split = id.split("-");
+      var num = split[1];
 
-     show_overlay(num,vid);
+      show_overlay(num,vid);
 
+    } else {
+      // there is no previous video .. jump to last video
+      $(".preview:last-of-type").addClass("on_prev").siblings().removeClass("on_prev");
+      var vid = $(".on_prev").attr("data-vid");
+      var id = $(".on_prev").attr("id");
+      var split = id.split("-");
+      var num = split[1];
 
-  } else {
+       show_overlay(num,vid);
 
-    // there is no previous video .. jump to last video
-    $( ".preview:last-of-type" ).addClass( "on_prev" ).siblings().removeClass( "on_prev" );
-    var vid = $( ".on_prev" ).attr( "data-vid" );
-    var id = $( ".on_prev" ).attr( "id" );
-    var split = id.split("-");
-    var num = split[1];
-
-     show_overlay(num,vid);
-
-
+    }
   }
-
-
-
-
- } if ( $( this ).hasClass( "right-arrow" )){
+  else if ($(this).hasClass("right-arrow")){
 
   // go forward
-  var current = $( ".on_prev" );
-  var next = $( ".on_prev" ).next();
+  var current = $(".on_prev");
+  var next = $(".on_prev").next();
 
-  if ( next.length > 0 ){
+  if (next.length > 0){
 
     // there is a next video
-    next.addClass( 'on_prev' ).siblings().removeClass( "on_prev" );
-    var vid = $( ".on_prev" ).attr( "data-vid" );
-    var id = $( ".on_prev" ).attr( "id" );
+    next.addClass('on_prev').siblings().removeClass("on_prev");
+    var vid = $(".on_prev").attr("data-vid");
+    var id = $(".on_prev").attr("id");
     var split = id.split("-");
     var num = split[1];
 
@@ -297,9 +278,9 @@ $( ".left-arrow, .right-arrow" ).click( function(){
   } else {
 
     // there is no next video .. jump to first video
-    $( ".preview:first-of-type" ).addClass( "on_prev" ).siblings().removeClass( "on_prev" );
-    var vid = $( ".on_prev" ).attr( "data-vid" );
-    var id = $( ".on_prev" ).attr( "id" );
+    $(".preview:first-of-type").addClass("on_prev").siblings().removeClass("on_prev");
+    var vid = $(".on_prev").attr("data-vid");
+    var id = $(".on_prev").attr("id");
     var split = id.split("-");
     var num = split[1];
 
@@ -310,7 +291,7 @@ $( ".left-arrow, .right-arrow" ).click( function(){
 
 
 
- } // end of if right arrow
+  } // end of if right arrow
 
 
 }); // end of click arrows
@@ -321,15 +302,15 @@ $( ".left-arrow, .right-arrow" ).click( function(){
 
 
 // to display active top bar menu link
-$( "body" ).on( "click", ".nav_link", function(){
+$("body").on("click", ".nav_link", function(){
 
- $( this ).addClass( "on_link" ).siblings().removeClass( "on_link" );
+ $(this).addClass("on_link").siblings().removeClass("on_link");
 
- if ( $( this ).hasClass( "nav_1" )){
+ if ($(this).hasClass("nav_1")){
 
    show_home();
 
- } if ( $( this ).hasClass( "nav_2" ) ){
+ } if ($(this).hasClass("nav_2")){
 
 
   show_about();
@@ -348,16 +329,16 @@ function show_home(){
 
 
  // show main content
-  $( "#about_section" ).addClass( "hide" );
+  $("#about_section").addClass("hide");
 
-  setTimeout( function(){
+  setTimeout(function(){
 
-  $( "#about_section" ).hide().removeClass( "hide" );
-  $( "#main" ).show();
+  $("#about_section").hide().removeClass("hide");
+  $("#main").show();
 
-  }, 200 );
+  }, 200);
 
- $( "body" ).animate({scrollTop: "0px" });
+ $("body").animate({scrollTop: "0px" });
 
 } // end of show home function
 
@@ -368,16 +349,16 @@ function show_about(){
 
 
   // show about section
-  $( "#main" ).addClass( "hide" );
+  $("#main").addClass("hide");
 
-  setTimeout( function(){
+  setTimeout(function(){
 
-  $( "#main" ).hide().removeClass( "hide" );
-  $( "#about_section" ).show();
+  $("#main").hide().removeClass("hide");
+  $("#about_section").show();
 
-  }, 200 );
+  }, 200);
 
- $( "body" ).animate({scrollTop: "0px" });
+ $("body").animate({scrollTop: "0px" });
 
 
 } // end of show about
@@ -387,44 +368,44 @@ function show_about(){
 
 
 // position menu links
-$( ".menu_wrap" ).css({"margin-top": -($( ".menu_wrap" ).outerHeight(true)/2) });
+$(".menu_wrap").css({"margin-top": -($(".menu_wrap").outerHeight(true)/2) });
 
 
 
 // -- to show mobile menu
-$( "body" ).on( "click", ".menu_button", function(){
+$("body").on("click", ".menu_button", function(){
 
- $( ".pop_up" ).show();
- $( ".menu_wrap" ).css({"margin-top": -($( ".menu_wrap" ).outerHeight(true)/2) });
+ $(".pop_up").show();
+ $(".menu_wrap").css({"margin-top": -($(".menu_wrap").outerHeight(true)/2) });
 
 }); // end of click menu button
 
 
 
 // -- to hide menu
-$( "body" ).on( "click", ".close_pop", function(){
+$("body").on("click", ".close_pop", function(){
 
- $( ".pop_up" ).hide();
+ $(".pop_up").hide();
 
 }); // end of close pop
 
 
 
 // -- click menu link
-$( "body" ).on( "click", ".menu_link", function(){
+$("body").on("click", ".menu_link", function(){
 
- if ( $( this ).hasClass( "m_1" ) ){
+ if ($(this).hasClass("m_1")){
 
  // show home
  show_home();
 
- } if ( $(this).hasClass( "m_2" ) ){
+ } if ($(this).hasClass("m_2")){
 
  // show about
  show_about();
 
  }
 
- $( ".pop_up" ).hide();
+ $(".pop_up").hide();
 
 });

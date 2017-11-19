@@ -187,9 +187,9 @@ header{
 
 
 /* media query */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
 
-
+.text-box { opacity: 0; }
 
 .nav_wrap { display: none; }
 
