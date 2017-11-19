@@ -17,7 +17,7 @@ var videoTitle = {
 
 var videoDescription = {
   1: "We live in a world where we are obsessed with work and increased productivity and efficiency, but is it dangerous to super-charge a system?",
-  2: "Our so-called “post-truth world, where politicians are always supposedly conspiring against us, can make us feel out of control and lead us to conspiracy.",
+  2: "Our so-called \"post-truth\" world, where politicians are always supposedly conspiring against us, can make us feel out of control and lead us to conspiracy.",
   3: "We’ve always been slaves, slaves to society. But the illusion changes as time changes - the mechanisms for enslavement shift.",
   4: "We’ve been made to fear death throughout history, but in a world subject to increased human lifespans, an unstable job economy (due to automation, precarious work and universal basic income), what next?",
   5: "A fear of death is a form of control. Significant and exponential technological and scientific advances mean we can escape more illnesses and diseases than before, ones that might have otherwise already eliminated us. A fear of death then makes us want to stay alive longer and thus work for longer.",
@@ -148,7 +148,7 @@ function scrollTo(element, to, duration) {
 document.addEventListener("DOMContentLoaded", function(){
 
   document.getElementById('scrollme').onclick = function () {
-     scrollTo(document.body, 0, 1250);
+     scrollTo(document.documentElement, 0, 1250);
   }
 
   showTextBox();

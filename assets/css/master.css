@@ -129,7 +129,7 @@ header{
             color: #05303E;
             text-align: center;
             z-index: 400;
-            letter-spacing: 2px;
+            letter-spacing: 1.7px;
             }
 
 
@@ -473,6 +473,7 @@ to   { -webkit-transform: rotateY(0deg); }
             position: relative;
             margin: 8% auto;
             cursor: pointer;
+            display: inline-block;
             }
 
 
@@ -498,7 +499,6 @@ to   { -webkit-transform: rotateY(0deg); }
                text-align: center;
                margin-top: 10px;
                font-family: Athelas-Regular;
-               font-style: italic;
                color: #C8C8C8;
                }
 
